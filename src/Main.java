@@ -34,8 +34,7 @@ public class Main {
         * and map out the results to their given character to be
         * displayed on console.
         */
-        int[] modResults;
-        modResults = FindModOf(numbers);
+        int[] modResults = FindModOf(numbers);
         System.out.print("Flag: picoCTF{");
         for (int i = 0; i < numbers.size(); i++){
             System.out.print(convert.MapTo(modResults[i]));
