@@ -23,7 +23,6 @@ public class Main {
 
     //Reads the data from the text file and parse it into an array of integers to be processed.
     private static ArrayList<Integer> ReadFileToArray(String file){
-
         ArrayList<Integer> collectedNumbers = new ArrayList<>();
         try{
             File myObj = new File(file);
