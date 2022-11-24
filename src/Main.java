@@ -14,7 +14,7 @@ public class Main {
         ArrayList<Integer> numberSet1 = ReadFileToArray(file1);
         ArrayList<Integer> numberSet2 = ReadFileToArray(file2);
 
-        DisplayMapResults(new NumberMapping(false), FindMod(numberSet1, 37,false),"basic-mod1");
+        DisplayMapResults(new NumberMapping(false), FindMod(numberSet1, 37, false),"basic-mod1");
         DisplayMapResults(new NumberMapping(true), FindMod(numberSet2, 41, true),"basic-mod2");
         System.out.println();
     }
@@ -61,7 +61,7 @@ public class Main {
         }
         return modList;
     }
-    
+
     private static int calculateModInverse(int a, int b){
         a = a % b;
         for (int x = 1; x < b; x++){
