@@ -55,9 +55,8 @@ public class Main {
     private static int[] FindMod(ArrayList<Integer> arrayList, int divisor, boolean inverse){
         int[] modList = new int[arrayList.size()];
         for (int i = 0; i < arrayList.size(); i++){
-            if(inverse){
-                modList[i] = calculateModInverse(arrayList.get(i), divisor);
-            } else modList[i] = arrayList.get(i) % divisor;
+            if(inverse) modList[i] = calculateModInverse(arrayList.get(i), divisor);
+            else modList[i] = arrayList.get(i) % divisor;
         }
         return modList;
     }
