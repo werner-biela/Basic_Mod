@@ -14,8 +14,8 @@ public class Main {
         ArrayList<Integer> numberSet1 = ReadFileToArray(file1);
         ArrayList<Integer> numberSet2 = ReadFileToArray(file2);
 
-        DisplayMapResults(new NumberMapping(false), FindModOf(numberSet1),"basic-mod1");
-        DisplayMapResults(new NumberMapping(true), FindModInverseOf(numberSet2),"basic-mod2");
+        DisplayMapResults(new NumberMapping(false), FindMod(numberSet1, 37,false),"basic-mod1");
+        DisplayMapResults(new NumberMapping(true), FindMod(numberSet2, 41, true),"basic-mod2");
         System.out.println();
     }
 
@@ -51,28 +51,17 @@ public class Main {
         System.out.print("}");
     }
 
-    // Method that finds out the mod37 of the numbers in a given Integer ArrayList
-    private static int[] FindModOf(ArrayList<Integer> array) {
-        int[] modList = new int[array.size()];
-        for(int i = 0; i< array.size(); i++) {
-            modList[i] = array.get(i) % 37;
+    // Finds the remainder or the inverse mod of a given number set and divisor.
+    private static int[] FindMod(ArrayList<Integer> arrayList, int divisor, boolean inverse){
+        int[] modList = new int[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++){
+            if(inverse){
+                modList[i] = calculateModInverse(arrayList.get(i), divisor);
+            } else modList[i] = arrayList.get(i) % divisor;
         }
         return modList;
     }
-
-    /*
-     * Method that finds out the inverse mod41 of the numbers
-     * in a given Integer ArrayList using calculateModInverse().
-     */
-    private static int[] FindModInverseOf(ArrayList<Integer> array){
-        int[] modInverseList = new int[array.size()];
-        for (int i = 0; i < array.size(); i++){
-            modInverseList[i] = calculateModInverse(array.get(i), 41 );
-        }
-        return modInverseList;
-    }
-
-    @SuppressWarnings("SameParameterValue")
+    
     private static int calculateModInverse(int a, int b){
         a = a % b;
         for (int x = 1; x < b; x++){
